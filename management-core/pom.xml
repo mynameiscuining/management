@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>management-system</artifactId>
+        <groupId>cn.njyazheng</groupId>
+        <version>${management.version}</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>management-core</artifactId>
+    <dependencies>
+        <dependency>
+            <groupId>com.ibeetl</groupId>
+            <artifactId>beetl-framework-starter</artifactId>
+            <version>1.1.81.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>cn.njyazheng</groupId>
+            <artifactId>management-security</artifactId>
+            <version>${management.version}</version>
+        </dependency>
+    </dependencies>
+
+
+</project>

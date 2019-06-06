@@ -1,0 +1,6 @@
+#地址映射
+page:
+  path-mapping-page:
+    - /->index.html
+    - /login->login.html
+

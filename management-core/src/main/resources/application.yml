@@ -1,0 +1,32 @@
+spring:
+  profiles:
+    active: urlmapping
+#beetl
+beetl-beetlsql:
+  dev: true
+beetl:
+  #html交给模板引擎
+  suffix: html
+  enabled: true
+#简单日志
+logging:
+  level:
+    root: info
+    org: info
+    cn.njyazheng: debug
+
+m:
+  #ant格式
+  exclude-path-pattern:
+    - /favicon.ico
+    - /login
+    - /login.html
+    - /lib/**
+    - /static/**
+    - /verify/code
+  verify:
+    code-params:
+      kaptcha.textproducer.font.size: 30
+      kaptcha.image.width: 180
+      kaptcha.image.height: 40
+
