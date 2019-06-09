@@ -20,6 +20,7 @@ public class SecurityProperties {
     }};
     private VerificationCodeProperties verify=new VerificationCodeProperties();
     private SmsCodeProperties sms=new SmsCodeProperties();
+    private String secret="";
     
     public Set<String> getExcludePathPattern() {
         return excludePathPattern;
@@ -75,5 +76,13 @@ public class SecurityProperties {
     
     public void setLoginMobile(String loginMobile) {
         this.loginMobile = loginMobile;
+    }
+    
+    public String getSecret() {
+        return secret;
+    }
+    
+    public void setSecret(String secret) {
+        this.secret = secret;
     }
 }

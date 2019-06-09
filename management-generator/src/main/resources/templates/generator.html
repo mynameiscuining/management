@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>代码生成</title>
+</head>
+<body>
+<h2>代码生成表单</h2>
+<form action="/gen" method="get">
+    表名:<input type="text" name="tableName" required/><span style="color: red">必填</span><br>
+    Dao包名:<input type="text" name="daoPkg" required/><span style="color: red">必填</span><br>
+    domain包名:<input type="text" name="domainPkg" required/><span style="color: red">必填</span><br>
+    项目名:<input type="text" name="projectName" required/><span style="color: red">子项目模块,必填</span><br>
+    <input type="submit" value="生成"/>
+</form>
+</body>
+</html>

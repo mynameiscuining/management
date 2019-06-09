@@ -1,13 +1,50 @@
 spring:
   profiles:
     active: urlmapping
+  datasource:
+    hikari:
+      jdbc-url: jdbc:mysql://192.168.229.129:3306/test?useUnicode=true&characterEncoding=UTF-8&rewriteBatchedStatementstrue&serverTimezone=UTC&useSSL=false
+      username: yazheng
+      password: yazheng123
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      # 最小空闲连接数
+      minimum-idle: 5
+      ## 空闲连接存活最大时间，默认600000（10分钟）
+      idle-timeout: 180000
+      ## 连接池最大连接数，默认是10
+      maximum-pool-size: 100
+      ## 此属性控制池中连接的最长生命周期，值0表示无限生命周期，默认1800000即30分钟
+      max-lifetime: 1800000
+      ## 此属性控制从池返回的连接的默认自动提交行为,默认值：true
+      auto-commit: true
+      ## 数据库连接超时时间,默认30秒，即30000
+      connection-timeout: 30000
+      connection-test-query: SELECT 1
 #beetl
+beetlsql:
+  #默认为/sql, 作为存放sql文件的根目录，位于/resources/sql目录下
+  sqlPath: /sql
+  # 默认是org.beetl.sql.core.UnderlinedNameConversion,能将下划
+  #线分割的数据库命名风格转化为java驼峰命名风格，还有常用的DefaultNameConversion，
+  #数据库命名完全和Java命名一直，以及JPA2NameConversion，兼容JPA命名
+  nameConversion: org.beetl.sql.core.UnderlinedNameConversion
+  #默认为Dao
+  daoSuffix: Dao
+  #此选项配置beetlsql.daoSuffix来自动扫描com包极其子包下的所有以Dao结尾的Mapper类
+  basePackage: cn.njyazheng.dao
+  #数据库风格，默认是.对应不同的数据库，其他还有OracleStyle，PostgresStyle,
+  #SqlServerStyle,DB2SqlStyle,SQLiteStyle,H2Style
+  dbStyle: org.beetl.sql.core.db.MySqlStyle
 beetl-beetlsql:
+  #默认是true，即向控制台输出执行时候的sql，参数，执行时间，
+  #以及执行的位置，每次修改sql文件的时候，自动检测sql文件修改.
   dev: true
 beetl:
   #html交给模板引擎
   suffix: html
   enabled: true
+
+
 #简单日志
 logging:
   level:
@@ -16,14 +53,15 @@ logging:
     cn.njyazheng: debug
 
 m:
+  secret: management123
   #ant格式
   exclude-path-pattern:
-    - /favicon.ico
     - /login
     - /login.html
-    - /lib/**
-    - /static/**
     - /verify/code
+    - /gen
+    - /toGen
+    - /generator.html
   verify:
     code-params:
       kaptcha.textproducer.font.size: 30

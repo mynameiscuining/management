@@ -1,5 +1,6 @@
 package cn.njyazheng.code.sms.auth;
 
+import cn.njyazheng.authorized.SmsCodeUserDetailsService;
 import cn.njyazheng.param.SecurityProperties;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;

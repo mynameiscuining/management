@@ -1,4 +1,4 @@
-package cn.njyazheng.auth;
+package cn.njyazheng.authorized;
 
 import cn.njyazheng.param.SecurityProperties;
 import org.slf4j.Logger;
@@ -11,7 +11,7 @@ import java.util.Set;
 
 
 public abstract class  AuthenticationConfiguration extends WebSecurityConfigurerAdapter {
-    private static final Logger logger = LoggerFactory.getLogger(AuthenticationConfiguration.class);
+    private  final Logger logger = LoggerFactory.getLogger(AuthenticationConfiguration.class);
     @Autowired
     protected SecurityProperties securityProperties;
     protected void configureAuthentication(HttpSecurity http) throws Exception {
@@ -36,5 +36,9 @@ public abstract class  AuthenticationConfiguration extends WebSecurityConfigurer
                 logger.debug("authenticated exclude-path-pattern:{} set success", s);
             });
         }
+    }
+    
+    public Logger getLogger() {
+        return logger;
     }
 }

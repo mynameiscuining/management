@@ -3,4 +3,5 @@ page:
   path-mapping-page:
     - /->index.html
     - /login->login.html
+    - /toGen->generator.html
 
