@@ -30,7 +30,7 @@ public abstract class  AuthenticationConfiguration extends WebSecurityConfigurer
         http.authorizeRequests()
                 //不需要认证,比如静态资源
                 .antMatchers(excludePathPatterns.toArray(new String[excludePathPatterns.size()])).permitAll()
-                .anyRequest().authenticated();
+                .anyRequest().access("@RBACService.hasPermission(servletRequest,authentication)");
         if (logger.isDebugEnabled()) {
             securityProperties.getExcludePathPattern().stream().forEach(s -> {
                 logger.debug("authenticated exclude-path-pattern:{} set success", s);
