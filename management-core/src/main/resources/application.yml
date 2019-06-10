@@ -57,11 +57,9 @@ m:
   #ant格式
   exclude-path-pattern:
     - /login
-    - /login.html
     - /verify/code
     - /gen
     - /toGen
-    - /generator.html
   verify:
     code-params:
       kaptcha.textproducer.font.size: 30

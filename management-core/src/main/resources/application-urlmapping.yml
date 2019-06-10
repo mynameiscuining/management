@@ -4,4 +4,5 @@ page:
     - /->index.html
     - /login->login.html
     - /toGen->generator.html
+    - /welcome->welcome.html
 

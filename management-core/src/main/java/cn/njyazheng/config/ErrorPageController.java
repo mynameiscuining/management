@@ -44,15 +44,19 @@ public class ErrorPageController extends AbstractErrorController {
         Map<String, Object> model = Collections.unmodifiableMap(this.getErrorAttributes(request, this.isIncludeStackTrace(request, MediaType.TEXT_HTML)));
         response.setStatus(status.value());
         ModelAndView modelAndView = this.resolveErrorView(request, response, status, model);
-        return modelAndView != null ? modelAndView : setModelAndView(status, model) ;
+        return modelAndView != null ? modelAndView : setModelAndView(status, model);
     }
     
     private ModelAndView setModelAndView(HttpStatus status, Map<String, Object> model) {
         switch (HttpStatus.valueOf(status.value())) {
             case NOT_FOUND:
-                return new ModelAndView("/error/404.html",model);
+                return new ModelAndView("/error/404.html", model);
+            case FORBIDDEN:
+                return new ModelAndView("/error/403.html",model);
+            case INTERNAL_SERVER_ERROR:
+                return new ModelAndView("/error/500.html",model);
             default:
-                return  new ModelAndView("error",model);
+                return new ModelAndView("error", model);
         }
     }
     
