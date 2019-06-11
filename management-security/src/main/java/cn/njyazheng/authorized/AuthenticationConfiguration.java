@@ -22,6 +22,9 @@ public abstract class  AuthenticationConfiguration extends WebSecurityConfigurer
                 .loginPage(securityProperties.getLoginPage())
                 .loginProcessingUrl(securityProperties.getLoginForm())
                 .defaultSuccessUrl(securityProperties.getDefaultSuccessUrl());
+        //注销
+        http.logout().logoutUrl(securityProperties.getLoginout())
+                .logoutSuccessUrl(securityProperties.getLoginPage());
  
         //所有请求要认证
         Set<String> excludePathPatterns = securityProperties.getExcludePathPattern();

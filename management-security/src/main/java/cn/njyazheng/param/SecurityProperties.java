@@ -12,6 +12,7 @@ import java.util.Set;
 @ConfigurationProperties(prefix = "m")
 public class SecurityProperties {
     private String loginPage="/login";
+    private String loginout="/logout";
     private String loginForm="/auth/form";
     private String defaultSuccessUrl="/";
     private String loginMobile="/auth/mobile";
@@ -84,5 +85,13 @@ public class SecurityProperties {
     
     public void setSecret(String secret) {
         this.secret = secret;
+    }
+    
+    public String getLoginout() {
+        return loginout;
+    }
+    
+    public void setLoginout(String loginout) {
+        this.loginout = loginout;
     }
 }

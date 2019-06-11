@@ -1,8 +1,9 @@
 #地址映射
 page:
   path-mapping-page:
-    - /->index.html
-    - /login->login.html
-    - /toGen->generator.html
-    - /welcome->welcome.html
+    - /->page:index.html
+    - /login->page:login.html
+    - /toGen->page:generator.html
+    - /welcome->page:welcome.html
+    - /logout->status:200
 
