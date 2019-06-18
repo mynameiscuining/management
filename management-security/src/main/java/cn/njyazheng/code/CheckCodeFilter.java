@@ -49,7 +49,7 @@ public abstract class CheckCodeFilter extends OncePerRequestFilter implements In
                 validateCode(httpServletRequest);
             } catch (CheckCodeFailureException e) {
                 simpleUrlAuthenticationFailureHandler.onAuthenticationFailure(httpServletRequest, httpServletResponse, e);
-                logger.debug("code authenticated failure",e);
+                logger.debug("code authenticated failure:"+e.getLocalizedMessage());
                 return;
             }
             

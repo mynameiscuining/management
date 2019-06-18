@@ -10,6 +10,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.util.AntPathMatcher;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.Objects;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -24,7 +25,7 @@ public class RBACService {
         if(principal instanceof UserDetails){
             String name=((UserDetails)principal).getUsername();
             //根据用户名获取所有的可访问url
-            Set<String> urls=permissionService.getPermissionsByUsername(name).stream().map(Permission::getUrl).collect(Collectors.toSet());
+            Set<String> urls=permissionService.getPermissionsByUsername(name).stream().map(Permission::getUrl).filter(Objects::nonNull).collect(Collectors.toSet());
             if(urls.stream().filter(url->antPathMatcher.match(url,servletRequest.getRequestURI())).count()>0L){
                 return true;
             }
